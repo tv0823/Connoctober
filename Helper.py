@@ -1,8 +1,8 @@
 import User from *
 class Helper(User):
-    def __init__(self,helpType = None):
-        if helpType is None:
-            self.help_types = []
+    def __init__(self,helpType = []):
+        self.help_types = helpType
+
         else:
             self.help_types = helpType
     def updateHelp(self, operatingln):
