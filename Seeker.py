@@ -1,4 +1,5 @@
-class Seeker:
-    def __init__(self,user_type,city):
-        self.user_type=user_type
-        self.city=city
+from User import User
+class Seeker(User):
+    def __init__(self, city):
+        super().__init__("Seeker")
+        self.city = city
