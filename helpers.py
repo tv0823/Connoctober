@@ -47,3 +47,45 @@ def mouse_in_button(button, mouse_pos):
     if button.x_pos + button.width > mouse_pos[0] > button.x_pos and \
             button.y_pos < mouse_pos[1] < button.y_pos + button.height:
         return True
+
+
+def display_text(sen, size, y, x = None):
+    # display sen on screen
+    font = pygame.font.SysFont(None, size)
+    text = font.render(sen, True, WHITE)
+
+    if x == None: # places it in the middle of the screen
+        x = (WINDOW_WIDTH - text.get_width()) // 2
+
+    screen.blit(text, (x, y))
+
+def get_text_input(X, Y):
+    pressed_enter = False
+    text = ""
+
+    input_box_width = 200
+    input_box_height = 25
+
+    while not pressed_enter:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    pressed_enter = True
+                elif event.key == pygame.K_BACKSPACE:
+                    text = text[:-1]
+                else:
+                    text += event.unicode
+
+        # Clear the previous text area only
+        pygame.draw.rect(screen, BACKGROUND_COLOR, (X, Y, input_box_width, input_box_height))
+
+        # Use your display_text function
+        display_text(text, 30, Y, X)
+
+        pygame.display.update()
+
+    return text
