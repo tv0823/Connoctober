@@ -59,12 +59,18 @@ def display_text(sen, size, y, x = None):
 
     screen.blit(text, (x, y))
 
-def get_text_input(X, Y):
+def get_text_input(X, Y, BOX_COLOR, CENTER):
     pressed_enter = False
     text = ""
 
     input_box_width = 200
-    input_box_height = 25
+    input_box_height = 40
+
+    font = pygame.font.SysFont(None, 30)
+
+    # places it in the middle of the screen
+    if X is None:
+        X = (WINDOW_WIDTH - input_box_width) // 2
 
     while not pressed_enter:
         for event in pygame.event.get():
@@ -81,10 +87,13 @@ def get_text_input(X, Y):
                     text += event.unicode
 
         # Clear the previous text area only
-        pygame.draw.rect(screen, BACKGROUND_COLOR, (X, Y, input_box_width, input_box_height))
+        pygame.draw.rect(screen, BOX_COLOR, (X, Y, input_box_width, input_box_height))
 
         # Use your display_text function
-        display_text(text, 30, Y, X)
+        if(CENTER):
+            display_text(text, 30, Y + 20)
+        else:
+            display_text(text, 30, Y, X)
 
         pygame.display.update()
 

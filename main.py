@@ -15,11 +15,14 @@ def main():
 
     # Set up background image
     background = pygame.image.load('Images/background.png')
+
     background = pygame.transform.scale(background,
                                         (WINDOW_WIDTH, WINDOW_HEIGHT))
 
     seekers_lst = []
     helpers_lst = []
+
+    seek_help_in = ""
 
     name = ""
     city = ""
@@ -55,18 +58,24 @@ def main():
                     waiting_for_release = True
 
                 elif(mouse_in_button(get_name_button, pos) and screen_mode == "user_info_screen"):
-                    name = get_text_input(NAME_BUTTON_X_POS + NAME_BUTTON_WIDTH + 10, NAME_BUTTON_Y_POS + NAME_BUTTON_HEIGHT//3)
+                    name = get_text_input(NAME_BUTTON_X_POS + NAME_BUTTON_WIDTH + 10, NAME_BUTTON_Y_POS + NAME_BUTTON_HEIGHT//3, BACKGROUND_COLOR, False)
                 elif(mouse_in_button(get_city_button, pos) and screen_mode == "user_info_screen"):
-                    city = get_text_input(CITY_BUTTON_X_POS + CITY_BUTTON_WIDTH + 10, CITY_BUTTON_Y_POS + CITY_BUTTON_HEIGHT //3)
+                    city = get_text_input(CITY_BUTTON_X_POS + CITY_BUTTON_WIDTH + 10, CITY_BUTTON_Y_POS + CITY_BUTTON_HEIGHT //3, BACKGROUND_COLOR, False)
                 elif(mouse_in_button(next_button, pos) and screen_mode == "user_info_screen" and name != "" and city != ""):
                     screen_mode = "log_in_screen"
                     waiting_for_release = True
 
-
                 elif(screen_mode == "seeker_screen"):
                     for button in seek_help_button_lst:
-                        if(mouse_in_button(button, pos)):
-                            print(button.text)
+                        if(mouse_in_button(button, pos) and button.text == "Personal request"):
+                            personal_req = get_text_input(SEEK_HELP_BUTTON_X_POS, SEEK_HELP_BUTTON_Y_POS + (SEEK_HELP_BUTTON_HEIGHT + 10) * (4 + 0.5), YELLOW, True)
+                            seek_help_in = personal_req
+                        elif(mouse_in_button(button, pos) and button.text != "SEND"):
+                            seek_help_in = button.text
+                        elif(mouse_in_button(button, pos) and button.text == "SEND"):
+                            print(seek_help_in)
+
+
             elif event.type == pygame.MOUSEBUTTONUP:
                 waiting_for_release = False
 
