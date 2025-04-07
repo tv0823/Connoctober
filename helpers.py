@@ -1,5 +1,6 @@
 import pygame
 
+from buttons import go_back_button
 from constants import *
 
 screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT), pygame.RESIZABLE)
@@ -98,3 +99,21 @@ def get_text_input(X, Y, BOX_COLOR, CENTER):
         pygame.display.update()
 
     return text
+
+
+def display_request_details(request, screen):
+    requester, details, city = request.openRequest()
+
+    display_text(requester, 35, USER_DETAILS_Y, USER_DETAILS_X)
+    display_text(details, 30, USER_DETAILS_Y + 50, USER_DETAILS_X)
+    display_text(city, 30, USER_DETAILS_Y + 100, USER_DETAILS_X)
+    go_back_button.draw(screen)
+
+def handle_go_back_button(screen_mode):
+    if screen_mode == "seeker_screen":
+        return "log_in_screen"  # Go back to the login screen
+    elif screen_mode == "helper_screen":
+        return "log_in_screen"  # Go back to the login screen
+    elif screen_mode == "request_details_screen":
+        return "helper_screen" # Go back to the helper screen
+    return screen_mode

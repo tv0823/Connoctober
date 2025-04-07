@@ -5,7 +5,4 @@ class HelpRequest:
         self.city = city
 
     def openRequest(self):
-        print(f"New request from: {self.requester_name}")
-        print(f"Description of the request: {self.request_details}")
-        print(f"City: {self.city}")
-
+        return f"New request from: {self.requester_name}", f"Description of the request: {self.request_details}", f"City: {self.city}"
