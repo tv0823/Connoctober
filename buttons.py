@@ -52,7 +52,7 @@ seek_help_button_lst.append(Button(SEEK_HELP_BUTTON_X_POS,
                                    SEEK_HELP_BUTTON_Y_POS + (SEEK_HELP_BUTTON_HEIGHT + 10) * (len(seek_help_button_lst) + 0.5),
                                    SEEK_HELP_BUTTON_WIDTH,
                                    SEEKER_BUTTON_HEIGHT,
-                                   "Groceries shopping", BTN_COLOR, BROWN))
+                                   "Grocery shopping", BTN_COLOR, BROWN))
 seek_help_button_lst.append(Button(SEEK_HELP_BUTTON_X_POS,
                                    SEEK_HELP_BUTTON_Y_POS + (SEEK_HELP_BUTTON_HEIGHT + 10) * (len(seek_help_button_lst) + 0.5),
                                    SEEK_HELP_BUTTON_WIDTH,
@@ -78,4 +78,10 @@ seek_help_button_lst.append(Button(SEEK_HELP_BUTTON_X_POS,
                                    SEEK_HELP_BUTTON_WIDTH,
                                    SEEKER_BUTTON_HEIGHT,
                                    "SUBMIT", BTN_COLOR, BROWN))
+
+accept_seek_button = Button(ACCEPT_BUTTON_X_POS,
+                                   ACCEPT_BUTTON_Y_POS,
+                                   ACCEPT_BUTTON_WIDTH,
+                                   SEEKER_BUTTON_HEIGHT,
+                                   "FINISH", BTN_COLOR, BROWN)
 

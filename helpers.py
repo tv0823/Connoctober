@@ -1,6 +1,7 @@
 import pygame
 
 from buttons import go_back_button
+from buttons import accept_seek_button
 from constants import *
 
 screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT), pygame.RESIZABLE)
@@ -108,6 +109,7 @@ def display_request_details(request, screen):
     display_text(details, 25, USER_DETAILS_Y + 50, USER_DETAILS_X)
     display_text(city, 25, USER_DETAILS_Y + 100, USER_DETAILS_X)
     display_text(phone, 25, USER_DETAILS_Y + 150, USER_DETAILS_X)
+    accept_seek_button.draw(screen)
     go_back_button.draw(screen)
 
 def handle_go_back_button(screen_mode):

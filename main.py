@@ -67,6 +67,16 @@ def main():
                     screen_mode = "log_in_screen"
                     waiting_for_release = True
 
+                elif mouse_in_button(accept_seek_button, pos) and screen_mode == "request_details_screen":
+                    # when the helper finished helping the person it removes the request from the screen
+                    if selected_seeker in seekers_lst:
+                        seekers_lst.remove(selected_seeker)
+                    selected_seeker = None
+                    selected_request = None
+                    screen_mode = "helper_screen"
+                    waiting_for_release = True
+
+
                 elif screen_mode == "seeker_screen":
                     for button in seek_help_button_lst:
                         if mouse_in_button(button, pos):
