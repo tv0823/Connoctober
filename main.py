@@ -130,7 +130,7 @@ def main():
                     if seeker == selected_seeker:
                         color = BTN_COLOR
                     else:
-                        color = LIGHT_GRAY
+                        color = YELLOW
 
                     pygame.draw.rect(screen, color, rect)
                     display_text(help_text, 24, rect.y + 10, rect.x + 10)
