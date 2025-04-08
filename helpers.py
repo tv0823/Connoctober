@@ -53,7 +53,7 @@ def mouse_in_button(button, mouse_pos):
 def display_text(sen, size, y, x = None):
     # display sen on screen
     font = pygame.font.SysFont(None, size)
-    text = font.render(sen, True, WHITE)
+    text = font.render(sen, True, BROWN)
 
     if x == None: # places it in the middle of the screen
         x = (WINDOW_WIDTH - text.get_width()) // 2
@@ -104,9 +104,9 @@ def get_text_input(X, Y, BOX_COLOR, CENTER):
 def display_request_details(request, screen):
     requester, details, city = request.openRequest()
 
-    display_text(requester, 35, USER_DETAILS_Y, USER_DETAILS_X)
-    display_text(details, 30, USER_DETAILS_Y + 50, USER_DETAILS_X)
-    display_text(city, 30, USER_DETAILS_Y + 100, USER_DETAILS_X)
+    display_text(requester, 30, USER_DETAILS_Y, USER_DETAILS_X)
+    display_text(details, 25, USER_DETAILS_Y + 50, USER_DETAILS_X)
+    display_text(city, 25, USER_DETAILS_Y + 100, USER_DETAILS_X)
     go_back_button.draw(screen)
 
 def handle_go_back_button(screen_mode):

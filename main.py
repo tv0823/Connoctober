@@ -68,11 +68,11 @@ def main():
                     for button in seek_help_button_lst:
                         if mouse_in_button(button, pos):
                             if button.text == "Personal request":
-                                personal_req = get_text_input(SEEK_HELP_BUTTON_X_POS, SEEK_HELP_BUTTON_Y_POS + (SEEK_HELP_BUTTON_HEIGHT + 10) * (4 + 0.5), YELLOW, True)
+                                personal_req = get_text_input(SEEK_HELP_BUTTON_X_POS, SEEK_HELP_BUTTON_Y_POS + (SEEK_HELP_BUTTON_HEIGHT + 10) * (4 + 0.5), BTN_COLOR, True)
                                 seek_help_in = personal_req
-                            elif button.text != "SEND":
+                            elif button.text != "SUBMIT":
                                 seek_help_in = button.text
-                            elif button.text == "SEND":
+                            elif button.text == "SUBMIT":
                                 if seekers_lst:
                                     seekers_lst[-1].setHelp(seek_help_in)
 
@@ -128,7 +128,7 @@ def main():
 
                     # Highlight the selected seeker
                     if seeker == selected_seeker:
-                        color = YELLOW
+                        color = BTN_COLOR
                     else:
                         color = LIGHT_GRAY
 

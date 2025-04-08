@@ -5,4 +5,4 @@ class HelpRequest:
         self.city = city
 
     def openRequest(self):
-        return f"New request from: {self.requester_name}", f"Description of the request: {self.request_details}", f"City: {self.city}"
+        return f"New request from: {self.requester_name}", f"Details: {self.request_details}", f"City: {self.city}"
