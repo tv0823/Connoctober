@@ -14,7 +14,6 @@ helper_button = Button(HELPER_BUTTON_X_POS,
                      HELPER_BUTTON_HEIGHT,
                        "Helper", BTN_COLOR, BROWN)
 
-
 go_back_button = Button(GO_BACK_BUTTON_X_POS,
                      GO_BACK_BUTTON_Y_POS,
                      GO_BACK_BUTTON_WIDTH,
@@ -33,6 +32,13 @@ get_city_button = Button(CITY_BUTTON_X_POS,
                      CITY_BUTTON_WIDTH,
                      CITY_BUTTON_HEIGHT,
                        "City:", BTN_COLOR, BROWN)
+
+get_phone_button = Button(PHONE_BUTTON_X_POS,
+                     PHONE_BUTTON_Y_POS,
+                     PHONE_BUTTON_WIDTH,
+                     PHONE_BUTTON_HEIGHT,
+                       "Phone:", BTN_COLOR, BROWN)
+
 
 next_button = Button(NEXT_BUTTON_X_POS,
                      NEXT_BUTTON_Y_POS,
@@ -72,3 +78,4 @@ seek_help_button_lst.append(Button(SEEK_HELP_BUTTON_X_POS,
                                    SEEK_HELP_BUTTON_WIDTH,
                                    SEEKER_BUTTON_HEIGHT,
                                    "SUBMIT", BTN_COLOR, BROWN))
+

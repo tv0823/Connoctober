@@ -102,11 +102,12 @@ def get_text_input(X, Y, BOX_COLOR, CENTER):
 
 
 def display_request_details(request, screen):
-    requester, details, city = request.openRequest()
+    requester, details, city, phone = request.openRequest()
 
     display_text(requester, 30, USER_DETAILS_Y, USER_DETAILS_X)
     display_text(details, 25, USER_DETAILS_Y + 50, USER_DETAILS_X)
     display_text(city, 25, USER_DETAILS_Y + 100, USER_DETAILS_X)
+    display_text(phone, 25, USER_DETAILS_Y + 150, USER_DETAILS_X)
     go_back_button.draw(screen)
 
 def handle_go_back_button(screen_mode):

@@ -5,7 +5,6 @@ from Seeker import *
 from Helper import *
 from HelpRequest import *
 
-
 def main():
     pygame.init()
     pygame.display.set_caption('Connoctober')
@@ -24,6 +23,7 @@ def main():
     seek_help_in = ""
     name = ""
     city = ""
+    phone = ""
 
     screen_mode = "user_info_screen"
 
@@ -38,7 +38,7 @@ def main():
                 pos = pygame.mouse.get_pos()
 
                 if mouse_in_button(seeker_button, pos) and screen_mode == "log_in_screen":
-                    seeker = Seeker(city, name)
+                    seeker = Seeker(name, city)
                     seekers_lst.append(seeker)
                     screen_mode = "seeker_screen"
                     waiting_for_release = True
@@ -60,7 +60,10 @@ def main():
                 elif mouse_in_button(get_city_button, pos) and screen_mode == "user_info_screen":
                     city = get_text_input(CITY_BUTTON_X_POS + CITY_BUTTON_WIDTH + 10, CITY_BUTTON_Y_POS + CITY_BUTTON_HEIGHT // 3, BACKGROUND_COLOR, False)
 
-                elif mouse_in_button(next_button, pos) and screen_mode == "user_info_screen" and name != "" and city != "":
+                elif mouse_in_button(get_phone_button, pos) and screen_mode == "user_info_screen":
+                    phone = get_text_input(PHONE_BUTTON_X_POS + PHONE_BUTTON_WIDTH + 10, PHONE_BUTTON_Y_POS + PHONE_BUTTON_HEIGHT // 3, BACKGROUND_COLOR, False)
+
+                elif mouse_in_button(next_button, pos) and screen_mode == "user_info_screen" and name != "" and city != "" and phone != "":
                     screen_mode = "log_in_screen"
                     waiting_for_release = True
 
@@ -81,7 +84,7 @@ def main():
                         if rect.collidepoint(pos):
                             selected_seeker = seeker
                             # Create a new HelpRequest object for the selected seeker
-                            selected_request = HelpRequest(selected_seeker.getName(), selected_seeker.getHelp(), city)
+                            selected_request = HelpRequest(selected_seeker.getName(), selected_seeker.getHelp(), city, phone)
                             screen_mode = "request_details_screen"  # Switch to request details screen
 
             elif event.type == pygame.MOUSEBUTTONUP:
@@ -93,11 +96,14 @@ def main():
         if screen_mode == "user_info_screen":
             get_name_button.draw(screen)
             get_city_button.draw(screen)
+            get_phone_button.draw(screen)
+
             next_button.draw(screen)
             display_text("Welcome to Connoctober", 35, WELCOME_TEXT_Y_POS)
             display_text("please enter your information", 32, WELCOME_TEXT_Y_POS + 25)
             display_text(name, 30, NAME_BUTTON_Y_POS + NAME_BUTTON_HEIGHT // 3, NAME_BUTTON_X_POS + NAME_BUTTON_WIDTH + 10)
             display_text(city, 30, CITY_BUTTON_Y_POS + CITY_BUTTON_HEIGHT // 3, CITY_BUTTON_X_POS + CITY_BUTTON_WIDTH + 10)
+            display_text(phone, 30, PHONE_BUTTON_Y_POS + PHONE_BUTTON_HEIGHT // 3, PHONE_BUTTON_X_POS + PHONE_BUTTON_WIDTH + 10)
 
         elif screen_mode == "log_in_screen":
             seeker_button.draw(screen)
